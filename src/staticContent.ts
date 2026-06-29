@@ -2,11 +2,7 @@ import blueImage from './images/blue.png';
 import profilePic from './images/harsh-pfp-ai.jpeg';
 import avataarImage from './images/avataar.png';
 import crmImage from './images/crm.png';
-import letsxchangeImage from './images/letsxchange.png';
-import myStartUpEquityImage from './images/mystartupequity.png';
-import myAlphaDojoImage from './images/myalphadojo.png';
-import utilisationImage from './images/utilisation.png';
-import vaackImage from './images/vaack.png';
+
 
 import { Certification, ContactMe, ProfileBanner, Project, Skill, TimelineItem, WorkPermit } from './types';
 
