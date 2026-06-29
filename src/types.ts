@@ -12,9 +12,6 @@ export interface ProfileBanner {
 
 export interface WorkPermit {
   visaStatus: string;
-  expiryDate: Date;
-  summary: string;
-  additionalInfo: string;
 }
 
 export interface TimelineItem {

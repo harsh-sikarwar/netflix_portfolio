@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Certifications.css';
 import { FaExternalLinkAlt, FaUniversity } from 'react-icons/fa';
 import { SiUdemy, SiCoursera, SiIeee } from 'react-icons/si';
-import { Certification } from '../types';
-import { getCertifications } from '../queries/getCertifications';
+import { staticCertifications } from '../staticContent';
 const iconData: { [key: string]: React.JSX.Element } = {
   'udemy': <SiUdemy />,
   'coursera': <SiCoursera />,
@@ -12,19 +11,7 @@ const iconData: { [key: string]: React.JSX.Element } = {
 }
 
 const Certifications: React.FC = () => {
-
-  const [certifications, setCertifications] = useState<Certification[]>([]);
-
-  useEffect(() => { 
-    async function fetchCertifications() {
-      const data = await getCertifications();
-      setCertifications(data);
-    }
-
-    fetchCertifications();
-  }, []);
-
-  if (certifications.length === 0) return <div>Loading...</div>;
+  const certifications = staticCertifications;
 
   return (
     <div className="certifications-container">

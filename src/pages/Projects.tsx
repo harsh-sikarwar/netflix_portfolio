@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Projects.css';
 import { FaReact, FaNodeJs, FaAws, FaDatabase, FaDocker, FaAngular, FaGithub, FaGitlab, FaGoogle, FaJava, FaJenkins, FaMicrosoft, FaPython, FaVuejs } from 'react-icons/fa';
 import { SiRubyonrails, SiPostgresql, SiMongodb, SiMaterialdesign, SiHtml5, SiCss3, SiJquery, SiAwsamplify, SiFirebase, SiTerraform, SiArgo } from 'react-icons/si';
-import { Project } from '../types';
-import { getProjects } from '../queries/getProjects';
+import { staticProjects } from '../staticContent';
 import { GrDeploy, GrKubernetes } from "react-icons/gr";
 
 const techIcons: { [key: string]: JSX.Element } = {
@@ -61,18 +60,7 @@ const techIcons: { [key: string]: JSX.Element } = {
 
 
 const Projects: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([])
-  
-  useEffect(() => { 
-    async function fetchProjects() {
-      const data = await getProjects();
-      setProjects(data);
-    }
-    
-    fetchProjects()
-  }, [])
-  
-  if (projects.length === 0) return <div>Loading...</div>;
+  const projects = staticProjects;
 
   return (
     <div className="projects-container">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { MdOutlineWork as WorkIcon } from 'react-icons/md';
@@ -6,24 +6,11 @@ import { IoSchool as SchoolIcon } from 'react-icons/io5';
 import { FaStar as StarIcon } from 'react-icons/fa';
 import './WorkExperience.css';
 import { TimelineItem } from '../types';
-import { getTimeline } from '../queries/getTimeline';
+import { staticTimeline } from '../staticContent';
 
 
 const WorkExperience: React.FC = () => {
-
-  const [timeLineData, setTimeLineData] = useState<TimelineItem[] | null>(null);
-
-  useEffect(() => {
-    async function fetchTimelineItem() {
-      const data = await getTimeline();
-      setTimeLineData(data);
-    }
-    fetchTimelineItem();
-  }, []);
-
-
-  if (!timeLineData) return <div>Loading...</div>;
-  console.log("🚀 ~ timeLineData:", timeLineData)
+  const timeLineData = staticTimeline as TimelineItem[];
 
   return (
     <>
@@ -60,13 +47,13 @@ const WorkExperience: React.FC = () => {
                 <h3 className="vertical-timeline-element-title">{item.title}</h3>
                 <h4 className="vertical-timeline-element-subtitle">{item.name}</h4>
                 <p className="vertical-timeline-element-tech">🔧 {item.techStack}</p>
-                <p>{item.summaryPoints}</p>
+                <p>{item.summaryPoints.join(' • ')}</p>
               </div>
             ) : (
               <div style={{ color: 'black' }}>
                 <h3 className="vertical-timeline-element-title">{item.name}</h3>
                 <h4 className="vertical-timeline-element-subtitle">{item.title}</h4>
-                <p>{item.summaryPoints}</p>
+                <p>{item.summaryPoints.join(' • ')}</p>
               </div>
             )}
           </VerticalTimelineElement>
