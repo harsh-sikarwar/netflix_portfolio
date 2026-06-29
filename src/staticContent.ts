@@ -14,7 +14,7 @@ export const staticProfileBanner: ProfileBanner = {
   backgroundImage: { url: blueImage },
   headline: 'Harshvardhan Singh Sikarwar',
   resumeLink: {
-    url: '/work-experience',
+    url: 'https://drive.google.com/file/d/1h7-CvcSRxF5CzdcSzvPv_q4pchhqz4SA/view?usp=sharing',
   },
   linkedinLink: 'https://www.linkedin.com/in/harsh-vardhan-sikarwar-12aa86237/',
   profileSummary: 'Full Stack Developer focused on building polished product experiences, practical automation, and cloud-backed web applications.',
